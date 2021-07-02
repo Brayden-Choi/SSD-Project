@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MIST", "MIST.csproj", "{881F155D-60D3-4464-BBB6-174327A1C77A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{881F155D-60D3-4464-BBB6-174327A1C77A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{881F155D-60D3-4464-BBB6-174327A1C77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{881F155D-60D3-4464-BBB6-174327A1C77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{881F155D-60D3-4464-BBB6-174327A1C77A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0AF94331-27A0-459C-A2ED-E4A25224606E}
+	EndGlobalSection
+EndGlobal
