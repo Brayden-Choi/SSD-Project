@@ -7,7 +7,7 @@ using MIST.Models;
 
 namespace MIST.Data
 {
-    public class MISTDbContext : IdentityDbContext
+    public class MISTDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         public MISTDbContext(DbContextOptions<MISTDbContext> options)
             : base(options)
