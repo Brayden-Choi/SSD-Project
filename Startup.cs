@@ -20,6 +20,7 @@ namespace MIST
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            //testing
         }
 
         public IConfiguration Configuration { get; }
