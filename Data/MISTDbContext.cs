@@ -16,5 +16,10 @@ namespace MIST.Data
         public DbSet<MIST.Models.Game> Game { get; set; }
         public DbSet<MIST.Models.Customer> Customers { get; set; }
         public DbSet<MIST.Models.AuditRecord> AuditRecords { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
     }
 }
