@@ -1,8 +1,8 @@
+using System.Net.Mime;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MIST.Data;
-
-ousing Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
@@ -39,7 +39,7 @@ namespace MIST
                 
             services.AddRazorPages();
 
-            services.AddIdentity<AppUser, AppRole>()
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI()
                 .AddEntityFrameworkStores<MISTDbContext>();
