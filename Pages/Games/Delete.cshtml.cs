@@ -50,7 +50,21 @@ namespace MIST.Pages.Games
             if (Game != null)
             {
                 _context.Game.Remove(Game);
-                await _context.SaveChangesAsync();
+                //  await _context.SaveChangesAsync();
+
+                // Once a record is deleted, create an audit record
+                if (await _context.SaveChangesAsync() > 0)
+                {
+                    var auditrecord = new AuditRecord();
+                    auditrecord.AuditActionType = "Deleted game from database";
+                    auditrecord.DateTimeStamp = DateTime.Now;
+                    auditrecord.KeyMovieFieldID = Game.ID;
+                    var userID = User.Identity.Name.ToString();
+                    auditrecord.Username = userID;
+                    _context.AuditRecords.Add(auditrecord);
+                    await _context.SaveChangesAsync();
+                }
+
             }
 
             return RedirectToPage("./Index");
