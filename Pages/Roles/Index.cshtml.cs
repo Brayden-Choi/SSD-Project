@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MIST.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MIST.Pages.Roles
 {
+    [Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly RoleManager<ApplicationRole> _roleManager;
