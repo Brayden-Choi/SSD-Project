@@ -5,12 +5,14 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using MIST.Models;
 
 namespace MIST.Pages.Roles
 {
+    [Authorize(Roles = "Admin")]
     public class ManageModel : PageModel
     {
         private readonly MIST.Data.MISTDbContext _context;

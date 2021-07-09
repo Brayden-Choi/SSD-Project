@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MIST.Migrations
 {
     [DbContext(typeof(MISTDbContext))]
-    [Migration("20210704134618_AddIdentitySchema")]
+    [Migration("20210709095511_AddIdentitySchema")]
     partial class AddIdentitySchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -193,6 +193,12 @@ namespace MIST.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Developer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Device")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FileType")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Genre")
