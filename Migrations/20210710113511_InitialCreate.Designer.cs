@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MIST.Migrations
 {
     [DbContext(typeof(MISTDbContext))]
-    [Migration("20210709095511_AddIdentitySchema")]
-    partial class AddIdentitySchema
+    [Migration("20210710113511_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -189,6 +189,9 @@ namespace MIST.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CoverImageName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -202,6 +205,9 @@ namespace MIST.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Genre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MediaName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

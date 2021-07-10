@@ -2,7 +2,7 @@
 
 namespace MIST.Migrations
 {
-    public partial class AddIdentitySchema : Migration
+    public partial class IdentitySchema : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

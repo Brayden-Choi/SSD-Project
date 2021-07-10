@@ -25,6 +25,8 @@ namespace MIST.Models
                     {
                         Name = "Kingdom Spade III",
                         ReleaseDate = DateTime.Parse("2021-3-30"),
+                        CoverImageName = "",
+                        MediaName = "",
                         Genre = "Fantasy",
                         FileType = "Soft Copy",
                         Device = "PC",
@@ -37,6 +39,8 @@ namespace MIST.Models
                    new Game
                    {
                        Name = "Undercooked!",
+                       CoverImageName = "",
+                       MediaName = "",
                        ReleaseDate = DateTime.Parse("2018-8-7"),
                        Genre = "Simulation",
                        FileType = "Soft Copy",
@@ -50,6 +54,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "Imshin Genpact",
+                        CoverImageName = "",
+                        MediaName = "",
                         ReleaseDate = DateTime.Parse("2020-9-28"),
                         Genre = "RPG",
                         FileType = "Soft Copy",
@@ -64,6 +70,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "Socket League",
+                        CoverImageName = "",
+                        MediaName = "",
                         ReleaseDate = DateTime.Parse("2020-9-24"),
                         Genre = "Football",
                         FileType = "Soft Copy",
@@ -77,6 +85,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "The Manley Parable",
+                        CoverImageName = "",
+                        MediaName = "",
                         ReleaseDate = DateTime.Parse("2013-10-17"),
                         Genre = "Indie",
                         FileType = "Soft Copy",
@@ -90,6 +100,8 @@ namespace MIST.Models
                      new Game
                      {
                          Name = "=Claus=",
+                         CoverImageName = "",
+                         MediaName = "",
                          ReleaseDate = DateTime.Parse("2016-1-19"),
                          Genre = "Indie",
                          FileType = "Hard Copy",
@@ -103,6 +115,8 @@ namespace MIST.Models
                      new Game
                      {
                          Name = "The Land Adventure of the Last Merman",
+                         CoverImageName = "",
+                         MediaName = "",
                          ReleaseDate = DateTime.Parse("2016-1-19"),
                          Genre = "Adventure",
                          FileType = "Hard Copy",
@@ -116,6 +130,8 @@ namespace MIST.Models
                       new Game
                       {
                           Name = "Punking the Cyber 7702",
+                          CoverImageName = "",
+                          MediaName = "",
                           ReleaseDate = DateTime.Parse("2020-12-10"),
                           Genre = "Sci-Fi",
                           FileType = "Hard Copy",
@@ -129,6 +145,8 @@ namespace MIST.Models
                       new Game
                       {
                           Name = "Punking the Cyber 7702",
+                          CoverImageName = "",
+                          MediaName = "",
                           ReleaseDate = DateTime.Parse("2020-12-10"),
                           Genre = "Sci-Fi",
                           FileType = "Hard Copy",
@@ -142,6 +160,8 @@ namespace MIST.Models
                         new Game
                         {
                             Name = "The Smis",
+                            CoverImageName = "",
+                            MediaName = "",
                             ReleaseDate = DateTime.Parse("2000-02-4"),
                             Genre = "Simulation",
                             FileType = "Hard Copy",
@@ -155,6 +175,8 @@ namespace MIST.Models
                          new Game
                          {
                              Name = "Luigi Kart 10.0 Deluxe",
+                             CoverImageName = "",
+                             MediaName = "",
                              ReleaseDate = DateTime.Parse("2020-12-10"),
                              Genre = "Racing",
                              FileType = "Hard Copy",

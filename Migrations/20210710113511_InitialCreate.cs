@@ -2,17 +2,17 @@
 
 namespace MIST.Migrations
 {
-    public partial class initialcreate : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Device",
+                name: "CoverImageName",
                 table: "Game",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
-                name: "FileType",
+                name: "MediaName",
                 table: "Game",
                 nullable: true);
         }
@@ -20,11 +20,11 @@ namespace MIST.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Device",
+                name: "CoverImageName",
                 table: "Game");
 
             migrationBuilder.DropColumn(
-                name: "FileType",
+                name: "MediaName",
                 table: "Game");
         }
     }

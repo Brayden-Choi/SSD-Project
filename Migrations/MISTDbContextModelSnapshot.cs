@@ -187,6 +187,9 @@ namespace MIST.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CoverImageName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -200,6 +203,9 @@ namespace MIST.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Genre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MediaName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")

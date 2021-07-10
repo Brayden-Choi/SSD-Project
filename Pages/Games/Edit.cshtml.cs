@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,18 +15,27 @@ using MIST.Models;
 
 namespace MIST.Pages.Games
 {
-    [Authorize(Roles = "Admin, Users")]
+    [Authorize(Roles = "Admin")]
+
     public class EditModel : PageModel
     {
-        private readonly MIST.Data.MISTDbContext _context;
+        private readonly MIST.Data.MISTDbContext context;
+        private readonly IWebHostEnvironment hostingEnvironment;
 
-        public EditModel(MIST.Data.MISTDbContext context)
+        public EditModel(MIST.Data.MISTDbContext context, IWebHostEnvironment environment)
         {
-            _context = context;
+            this.hostingEnvironment = environment;
+            this.context = context;
         }
 
         [BindProperty]
         public Game Game { get; set; }
+
+        [BindProperty]
+        public IFormFile CoverImage { set; get; }
+
+        [BindProperty]
+        public IFormFile Media { set; get; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -32,7 +44,7 @@ namespace MIST.Pages.Games
                 return NotFound();
             }
 
-            Game = await _context.Game.FirstOrDefaultAsync(m => m.ID == id);
+            Game = await context.Game.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Game == null)
             {
@@ -50,11 +62,29 @@ namespace MIST.Pages.Games
                 return Page();
             }
 
-            _context.Attach(Game).State = EntityState.Modified;
+            if (this.CoverImage != null)
+            {
+                var fileName = GetUniqueName(this.CoverImage.FileName);
+                var uploads = Path.Combine(hostingEnvironment.WebRootPath, "uploads");
+                var filePath = Path.Combine(uploads, fileName);
+                this.CoverImage.CopyTo(new FileStream(filePath, FileMode.Create));
+                this.Game.CoverImageName = fileName; // Set the file name
+            }
+
+            if (this.Media != null)
+            {
+                var fileName2 = GetUniqueName(this.Media.FileName);
+                var uploads2 = Path.Combine(hostingEnvironment.WebRootPath, "uploads");
+                var filePath2 = Path.Combine(uploads2, fileName2);
+                this.Media.CopyTo(new FileStream(filePath2, FileMode.Create));
+                this.Game.MediaName = fileName2; // Set the file name
+            }
+
+            context.Attach(Game).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
+                await context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -73,7 +103,15 @@ namespace MIST.Pages.Games
 
         private bool GameExists(int id)
         {
-            return _context.Game.Any(e => e.ID == id);
+            return context.Game.Any(e => e.ID == id);
+        }
+
+        private string GetUniqueName(string fileName)
+        {
+            fileName = Path.GetFileName(fileName);
+            return Path.GetFileNameWithoutExtension(fileName)
+                    + "_" + Guid.NewGuid().ToString().Substring(0, 4)
+                    + Path.GetExtension(fileName);
         }
     }
 }

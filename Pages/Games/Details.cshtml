@@ -7,6 +7,15 @@
 
 <h1>Details</h1>
 
+<head>
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
 <div>
     <h4>Game</h4>
     <hr />
@@ -16,6 +25,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Game.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Game.MediaName)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="~/uploads/@Model.Game.MediaName" />
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Game.ReleaseDate)
@@ -28,6 +43,18 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Game.Genre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Game.FileType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game.FileType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Game.Device)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Game.Device)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Game.Description)

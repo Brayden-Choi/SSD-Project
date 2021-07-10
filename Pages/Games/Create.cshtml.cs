@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,13 +15,17 @@ using MIST.Models;
 namespace MIST.Pages.Games
 {
     [Authorize(Roles = "Admin")]
+
     public class CreateModel : PageModel
     {
-        private readonly MIST.Data.MISTDbContext _context;
+        private readonly MIST.Data.MISTDbContext context;
+        private readonly IWebHostEnvironment hostingEnvironment;
 
-        public CreateModel(MIST.Data.MISTDbContext context)
+
+        public CreateModel(MIST.Data.MISTDbContext context, IWebHostEnvironment environment)
         {
-            _context = context;
+            this.hostingEnvironment = environment;
+            this.context = context;
         }
 
         public IActionResult OnGet()
@@ -29,36 +36,50 @@ namespace MIST.Pages.Games
         [BindProperty]
         public Game Game { get; set; }
 
+        [BindProperty]
+        public IFormFile CoverImage { set; get; }
+
+        [BindProperty]
+        public IFormFile Media { set; get; }
+
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
-            {
+
                 return Page();
-            }
 
-            _context.Game.Add(Game);
-            //await _context.SaveChangesAsync();
-
-            // Once a record is added, create an audit record
-            if (await _context.SaveChangesAsync() > 0)
+            if (this.CoverImage != null)
             {
-                // Create an auditrecord object
-                var auditrecord = new AuditRecord();
-                auditrecord.AuditActionType = "Added game to database";
-                auditrecord.DateTimeStamp = DateTime.Now;
-                auditrecord.KeyMovieFieldID = Game.ID;
-                // Get current logged-in user
-                var userID = User.Identity.Name.ToString();
-                auditrecord.Username = userID;
-
-                _context.AuditRecords.Add(auditrecord);
-                await _context.SaveChangesAsync();
+                var fileName = GetUniqueName(this.CoverImage.FileName);
+                var uploads = Path.Combine(hostingEnvironment.WebRootPath, "uploads");
+                var filePath = Path.Combine(uploads, fileName);
+                this.CoverImage.CopyTo(new FileStream(filePath, FileMode.Create));
+                this.Game.CoverImageName = fileName; // Set the file name
             }
 
+            if (this.Media != null)
+            {
+                var fileName2 = GetUniqueName(this.Media.FileName);
+                var uploads2 = Path.Combine(hostingEnvironment.WebRootPath, "uploads");
+                var filePath2 = Path.Combine(uploads2, fileName2);
+                this.Media.CopyTo(new FileStream(filePath2, FileMode.Create));
+                this.Game.MediaName = fileName2; // Set the file name
+            }
+
+            context.Game.Add(Game);
+            await context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
+        }
+        
+        private string GetUniqueName(string fileName)
+        {
+            fileName = Path.GetFileName(fileName);
+            return Path.GetFileNameWithoutExtension(fileName)
+                    + "_" + Guid.NewGuid().ToString().Substring(0, 4)
+                    + Path.GetExtension(fileName);
         }
     }
 }

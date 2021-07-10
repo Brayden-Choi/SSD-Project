@@ -12,6 +12,7 @@ using MIST.Models;
 namespace MIST.Pages.Games
 {
     [Authorize(Roles = "Admin, Users")]
+
     public class IndexModel : PageModel
     {
         private readonly MIST.Data.MISTDbContext _context;

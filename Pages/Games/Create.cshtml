@@ -11,12 +11,22 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Game.Name" class="control-label"></label>
                 <input asp-for="Game.Name" class="form-control" />
                 <span asp-validation-for="Game.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Game.CoverImageName" class="control-label"></label>
+                <input type="file" asp-for="CoverImage" />
+                <span asp-validation-for="Game.CoverImageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Game.MediaName" class="control-label"></label>
+                <input type="file" asp-for="Media" />
+                <span asp-validation-for="Game.MediaName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Game.ReleaseDate" class="control-label"></label>
@@ -27,6 +37,16 @@
                 <label asp-for="Game.Genre" class="control-label"></label>
                 <input asp-for="Game.Genre" class="form-control" />
                 <span asp-validation-for="Game.Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Game.FileType" class="control-label"></label>
+                <input asp-for="Game.FileType" class="form-control" />
+                <span asp-validation-for="Game.FileType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Game.Device" class="control-label"></label>
+                <input asp-for="Game.Device" class="form-control" />
+                <span asp-validation-for="Game.Device" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Game.Description" class="control-label"></label>

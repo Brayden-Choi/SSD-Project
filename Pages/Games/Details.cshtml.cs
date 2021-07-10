@@ -12,6 +12,7 @@ using MIST.Models;
 namespace MIST.Pages.Games
 {
     [Authorize(Roles = "Admin, Users")]
+
     public class DetailsModel : PageModel
     {
         private readonly MIST.Data.MISTDbContext _context;
