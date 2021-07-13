@@ -23,7 +23,7 @@ namespace MIST.Pages
         public void OnGet()
         {
             SeedData gameModel = new SeedData();
-            Games = gameModel.findAll();
+           // Games = gameModel.findAll();
         }
     }
 }

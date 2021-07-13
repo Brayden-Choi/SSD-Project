@@ -21,5 +21,7 @@ namespace MIST.Data
         {
             base.OnModelCreating(builder);
         }
+
+        public DbSet<MIST.Models.Feedback> Feedback { get; set; }
     }
 }

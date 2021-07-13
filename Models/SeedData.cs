@@ -191,18 +191,19 @@ namespace MIST.Models
 
                 );
 
-                public List<Game> findAll()
-                {
-                    return Game;
-                }
-
-                public Game find(string id)
-                {
-                    return Game.Where(p => p.Id == id).FirstOrDefault();
-                }
 
                 context.SaveChanges();
             }
         }
+        /*   public List<Game> findAll()
+           {
+               return Game;
+           }
+
+           public Game find(string id)
+           { 
+               return Game.Where(p => p.Id == id).FirstOrDefault();
+           }*/
+       }
     }
-}
+

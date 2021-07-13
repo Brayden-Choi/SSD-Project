@@ -180,6 +180,26 @@ namespace MIST.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("MIST.Models.Feedback", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CustRefID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FeedbackText")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("CustRefID");
+
+                    b.ToTable("Feedback");
+                });
+
             modelBuilder.Entity("MIST.Models.Game", b =>
                 {
                     b.Property<int>("ID")
@@ -212,7 +232,7 @@ namespace MIST.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("Publisher")
                         .HasColumnType("nvarchar(max)");
@@ -327,6 +347,15 @@ namespace MIST.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("MIST.Models.Feedback", b =>
+                {
+                    b.HasOne("MIST.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustRefID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
