@@ -44,7 +44,7 @@ namespace MIST.Pages.Games
                 return NotFound();
             }
 
-            Game = await context.Game.FirstOrDefaultAsync(m => m.ID == id);
+            Game = await context.Game.FirstOrDefaultAsync((System.Linq.Expressions.Expression<Func<Game, bool>>)(m => m.ID == id));
 
             if (Game == null)
             {
@@ -103,7 +103,7 @@ namespace MIST.Pages.Games
 
         private bool GameExists(int id)
         {
-            return context.Game.Any(e => e.ID == id);
+            return context.Game.Any((System.Linq.Expressions.Expression<Func<Game, bool>>)(e => e.ID == id));
         }
 
         private string GetUniqueName(string fileName)

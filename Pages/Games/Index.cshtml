@@ -1,4 +1,5 @@
 ﻿@page
+@using MIST.Models
 @model MIST.Pages.Games.IndexModel
 
 @{
@@ -93,8 +94,8 @@
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-page="cart" asp-page-handler="buynow" asp-route-id="@Game.ID">Buy Now</a>
             </td>
         </tr>
 }
-    </tbody>
 </table>

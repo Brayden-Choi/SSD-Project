@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using MIST.Data;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace MIST.Models
@@ -187,7 +188,19 @@ namespace MIST.Models
                              Price = 30M
                          }
 
+
                 );
+
+                public List<Game> findAll()
+                {
+                    return Game;
+                }
+
+                public Game find(string id)
+                {
+                    return Game.Where(p => p.Id == id).FirstOrDefault();
+                }
+
                 context.SaveChanges();
             }
         }

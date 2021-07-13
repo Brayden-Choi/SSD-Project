@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MIST.Models;
 
 namespace MIST.Pages
 {
@@ -17,9 +18,12 @@ namespace MIST.Pages
             _logger = logger;
         }
 
+        public List<Game> Games;
+
         public void OnGet()
         {
-
+            SeedData gameModel = new SeedData();
+            Games = gameModel.findAll();
         }
     }
 }

@@ -33,16 +33,13 @@ namespace MIST
             services.AddDbContext<MISTDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("MISTDbContext")));
-                
             services.AddRazorPages();
-
             services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddDefaultTokenProviders()
                 .AddDefaultUI()
                 .AddEntityFrameworkStores<MISTDbContext>();
-
-
-
+            services.AddSession();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +59,7 @@ namespace MIST
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 

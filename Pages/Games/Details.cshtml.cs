@@ -31,7 +31,7 @@ namespace MIST.Pages.Games
                 return NotFound();
             }
 
-            Game = await _context.Game.FirstOrDefaultAsync(m => m.ID == id);
+            Game = await _context.Game.FirstOrDefaultAsync((System.Linq.Expressions.Expression<Func<Game, bool>>)(m => m.ID == id));
 
             if (Game == null)
             {
