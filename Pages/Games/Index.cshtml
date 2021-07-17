@@ -6,7 +6,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Games</h1>
 
 <head>
     <style>
@@ -23,7 +23,7 @@
 </p>
 <form>
     <p>
-        <select asp-for="Genre" asp-items="Model.Genres">
+        Genre: <select asp-for="Genre" asp-items="Model.Genres">
             <option value="">All</option>
         </select>
         Title: <input type="text" asp-for="SearchString" />

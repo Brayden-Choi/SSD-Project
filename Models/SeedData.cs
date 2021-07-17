@@ -173,22 +173,81 @@ namespace MIST.Models
                             Price = 60.10M
                         },
 
-                         new Game
-                         {
-                             Name = "Luigi Kart 10.0 Deluxe",
-                             CoverImageName = "",
-                             MediaName = "",
-                             ReleaseDate = DateTime.Parse("2020-12-10"),
-                             Genre = "Racing",
-                             FileType = "Hard Copy",
-                             Device = "Nintendo Switch",
-                             Description = "Race up to 4 of your friends or battle them in a revised battle mode on new and returning battle courses.",
-                             Developer = "Nine Ten Dos",
-                             Publisher = "Nine Ten Dos",
-                             Price = 30M
-                         }
+                    new Game
+                    {
+                        Name = "Luigi Kart 10.0 Deluxe",
+                        CoverImageName = "",
+                        MediaName = "",
+                        ReleaseDate = DateTime.Parse("2020-12-10"),
+                        Genre = "Racing",
+                        FileType = "Hard Copy",
+                        Device = "Nintendo Switch",
+                        Description = "Race up to 4 of your friends or battle them in a revised battle mode on new and returning battle courses.",
+                        Developer = "Nine Ten Dos",
+                        Publisher = "Nine Ten Dos",
+                        Price = 30M
+                    },
+
+                    new Game
+                    {
+                        Name = "Cunter-Strike: Local Defensive",
+                        CoverImageName = "",
+                        MediaName = "",
+                        ReleaseDate = DateTime.Parse("2012-08-22"),
+                        Genre = "FPS",
+                        FileType = "Soft Copy",
+                        Device = "PC",
+                        Description = "Cunter-Strike: Local Defensive (CSLD) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: LD features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dirt2, etc.).",
+                        Developer = "Vulve, Unhidden Trail Entertainment",
+                        Publisher = "Vulve",
+                        Price = 12.99M
+                    },
 
 
+                        new Game
+                        {
+                            Name = "Run n Gun",
+                            CoverImageName = "",
+                            MediaName = "",
+                            ReleaseDate = DateTime.Parse("2020-06-2"),
+                            Genre = "FPS",
+                            FileType = "Soft Copy",
+                            Device = "PC",
+                            Description = "A super realistic game where players can just run and gun and headshot other players",
+                            Developer = "Protest Games",
+                            Publisher = "Protest Games",
+                            Price = 0.01M
+                        },
+
+                        new Game
+                        {
+                            Name = "F1 2021",
+                            CoverImageName = "",
+                            MediaName = "",
+                            ReleaseDate = DateTime.Parse("2021-07-15"),
+                            Genre = "Racing",
+                            FileType = "Soft Copy",
+                            Device = "PS4",
+                            Description = "Every story has a beginning in F1® 2021, the official videogame of the 2021 FIA FORMULA ONE WORLD CHAMPIONSHIP™. Enjoy the stunning new features of F1® 2021, including the thrilling story experience ‘Braking Point’, two-player Career, and get even closer to the grid with ‘Real-Season Start’.",
+                            Developer = "CodeMasters",
+                            Publisher = "Ancient Arts",
+                            Price = 79.9M
+                        },
+
+                        new Game
+                        {
+                            Name = "FIFA 22",
+                            CoverImageName = "",
+                            MediaName = "",
+                            ReleaseDate = DateTime.Parse("2021-7-17"),
+                            Genre = "Football",
+                            FileType = "Soft Copy",
+                            Device = "PC",
+                            Description = "FIFA is the world's most rage-inducing pay-to-win football game. Every year, millions of players break their controller, keyboard and monitors over the thrilling and toxic gameplay! Developer's Note: The only thing we add each year is 1 to the year.",
+                            Developer = "Ancient Arts",
+                            Publisher = "Ancient Arts",
+                            Price = 99.99M
+                        }
                 );
 
 

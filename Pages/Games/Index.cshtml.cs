@@ -12,7 +12,7 @@ using MIST.Models;
 
 namespace MIST.Pages.Games
 {
-    [Authorize(Roles = "Admin, Users")]
+    [Authorize(Roles = "Admin, Users, Staff")]
 
     public class IndexModel : PageModel
     {
