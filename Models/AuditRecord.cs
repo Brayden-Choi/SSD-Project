@@ -24,7 +24,7 @@ namespace MIST.Models
         public DateTime DateTimeStamp { get; set; }
         //Time when event occurred
 
-        [Display(Name = "Movie Record ID")]
+        [Display(Name = "Game Record ID")]
         public int KeyMovieFieldID { get; set; }
         //Store ID of movie record affected
     }
