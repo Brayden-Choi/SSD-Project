@@ -11,7 +11,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="ApplicationRole.Name" class="control-label"></label>
-                <input asp-for="ApplicationRole.Name" class="form-control" />
+                <input asp-for="ApplicationRole.Name" class="form-control" pattern="[A-Za-z0-9]+" />
                 <span asp-validation-for="ApplicationRole.Name" class="text-danger"></span>
             </div>
             <div class="form-group">

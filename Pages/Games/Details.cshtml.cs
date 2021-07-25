@@ -11,7 +11,7 @@ using MIST.Models;
 
 namespace MIST.Pages.Games
 {
-    [Authorize(Roles = "Admin, Users, Staff")]
+    [Authorize(Roles = "Admin, User, Staff")]
 
     public class DetailsModel : PageModel
     {
