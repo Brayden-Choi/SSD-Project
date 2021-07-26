@@ -9,6 +9,7 @@
 <h1>Games</h1>
 
 <head>
+    <link rel="stylesheet" href="/css/Game.css">
     <style>
         img {
             max-width: 100%;
@@ -103,6 +104,7 @@
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a class="button1">Add To Cart</a>
             </td>
         </tr>
 }

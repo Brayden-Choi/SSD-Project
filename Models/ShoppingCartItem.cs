@@ -14,5 +14,7 @@ namespace MIST.Models
         [ForeignKey("Game")]
         public int GameId { get; set; }
         public Game Game { get; set; }
+        [ForeignKey("AspNetUsers")]
+        public int Id { get; set; }
     }
 }

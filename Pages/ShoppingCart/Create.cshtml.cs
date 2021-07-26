@@ -36,6 +36,11 @@ namespace MIST.Pages.ShoppingCart
             {
                 return Page();
             }
+            var cartItem = new ShoppingCartItem()
+            {
+                ItemId = ShoppingCartItem
+
+            }
 
             _context.ShoppingCartItem.Add(ShoppingCartItem);
             await _context.SaveChangesAsync();
