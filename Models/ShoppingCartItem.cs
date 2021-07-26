@@ -11,10 +11,14 @@ namespace MIST.Models
     {
         [Key]
         public int ShoppingCartId { get; set; }
+
         [ForeignKey("Game")]
-        public int GameId { get; set; }
+        public Game GameId { get; set; }
         public Game Game { get; set; }
+
         [ForeignKey("AspNetUsers")]
-        public int Id { get; set; }
+        public int UserId { get; set; }
+        public ApplicationUser User { get; set; }
+        public int 
     }
 }
