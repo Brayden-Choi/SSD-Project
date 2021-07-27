@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\Feedbacks\Index1.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Feedbacks\Index1.cshtml" />
     <Content Remove="wwwroot\css\Game.css" />
   </ItemGroup>
 
@@ -25,7 +30,6 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Pages\Feedbacks\" />
     <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
 

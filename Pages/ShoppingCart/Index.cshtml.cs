@@ -10,6 +10,7 @@ using MIST.Models;
 using Microsoft.Extensions.Options;
 using Stripe;
 using Stripe.Checkout;
+using System.Security.Claims;
 
 namespace MIST.Pages.ShoppingCart
 {
@@ -27,14 +28,22 @@ namespace MIST.Pages.ShoppingCart
 
         public async Task OnGetAsync()
         {
+            var UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             ShoppingCartItem = await _context.SCart
-                .Include(s => s.Game).ToListAsync();
+                .Include(s => s.Game)
+                .Where(s => s.UserId.Equals(UserID))
+                .ToListAsync();
         }
 
         public async Task<StatusCodeResult> OnPostAsync()
         {
+            var UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             ShoppingCartItem = await _context.SCart
-            .Include(s => s.Game).ToListAsync();
+            .Include(s => s.Game)
+            .Where(s => s.UserId.Equals(UserID))
+            .ToListAsync();
 
             if (ShoppingCartItem.Count == 0)
             {

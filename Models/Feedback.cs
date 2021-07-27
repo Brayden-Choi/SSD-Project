@@ -10,12 +10,11 @@ namespace MIST.Models
     public class Feedback
     {
         [Key]
-        public int FeedbackID { get; set; }
+        public int FeedbackId { get; set; }
 
-        [ForeignKey("AspNetUsers")]
-        public int Id { get; set; }
-
-        public ApplicationUser FullName { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
         public string FeedbackText { get; set; }
     }
 }
