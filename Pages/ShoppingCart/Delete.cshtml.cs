@@ -29,7 +29,7 @@ namespace MIST.Pages.ShoppingCart
                 return NotFound();
             }
 
-            ShoppingCartItem = await _context.ShoppingCartItem
+            ShoppingCartItem = await _context.SCart
                 .Include(s => s.Game).FirstOrDefaultAsync(m => m.ShoppingCartId == id);
 
             if (ShoppingCartItem == null)
@@ -46,11 +46,11 @@ namespace MIST.Pages.ShoppingCart
                 return NotFound();
             }
 
-            ShoppingCartItem = await _context.ShoppingCartItem.FindAsync(id);
+            ShoppingCartItem = await _context.SCart.FindAsync(id);
 
             if (ShoppingCartItem != null)
             {
-                _context.ShoppingCartItem.Remove(ShoppingCartItem);
+                _context.SCart.Remove(ShoppingCartItem);
                 await _context.SaveChangesAsync();
             }
 

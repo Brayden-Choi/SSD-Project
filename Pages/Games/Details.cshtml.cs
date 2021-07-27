@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,7 @@ using MIST.Models;
 
 namespace MIST.Pages.Games
 {
-    [Authorize(Roles = "Admin, User, Staff")]
+    //[Authorize(Roles = "Admin, User, Staff")]
 
     public class DetailsModel : PageModel
     {
@@ -38,6 +39,20 @@ namespace MIST.Pages.Games
                 return NotFound();
             }
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            _context.SCart.Add(new ShoppingCartItem { UserId = UserID, GameId = (int)id });
+            await _context.SaveChangesAsync();
+
+            return Redirect("~/ShoppingCart/Index");
         }
     }
 }

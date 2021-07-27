@@ -28,7 +28,7 @@ namespace MIST.Pages.ShoppingCart
                 return NotFound();
             }
 
-            ShoppingCartItem = await _context.ShoppingCartItem
+            ShoppingCartItem = await _context.SCart
                 .Include(s => s.Game).FirstOrDefaultAsync(m => m.ShoppingCartId == id);
 
             if (ShoppingCartItem == null)

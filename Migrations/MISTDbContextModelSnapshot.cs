@@ -63,15 +63,12 @@ namespace MIST.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("BirthDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
@@ -153,49 +150,25 @@ namespace MIST.Migrations
                     b.ToTable("AuditRecords");
                 });
 
-            modelBuilder.Entity("MIST.Models.Customer", b =>
-                {
-                    b.Property<int>("CustomerID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNum")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("CustomerID");
-
-                    b.ToTable("Customers");
-                });
-
             modelBuilder.Entity("MIST.Models.Feedback", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("FeedbackID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CustRefID")
-                        .HasColumnType("int");
 
                     b.Property<string>("FeedbackText")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.Property<string>("FullNameId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.HasIndex("CustRefID");
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("FeedbackID");
+
+                    b.HasIndex("FullNameId");
 
                     b.ToTable("Feedback");
                 });
@@ -255,11 +228,19 @@ namespace MIST.Migrations
                     b.Property<int>("GameId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("ShoppingCartId");
 
                     b.HasIndex("GameId");
 
-                    b.ToTable("ShoppingCartItem");
+                    b.HasIndex("UserId");
+
+                    b.ToTable("SCart");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -368,11 +349,9 @@ namespace MIST.Migrations
 
             modelBuilder.Entity("MIST.Models.Feedback", b =>
                 {
-                    b.HasOne("MIST.Models.Customer", "Customer")
+                    b.HasOne("MIST.Models.ApplicationUser", "FullName")
                         .WithMany()
-                        .HasForeignKey("CustRefID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FullNameId");
                 });
 
             modelBuilder.Entity("MIST.Models.ShoppingCartItem", b =>
@@ -382,6 +361,10 @@ namespace MIST.Migrations
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("MIST.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

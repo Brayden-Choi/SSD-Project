@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MIST.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class SHEESH : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,8 +44,7 @@ namespace MIST.Migrations
                     LockoutEnabled = table.Column<bool>(nullable: false),
                     AccessFailedCount = table.Column<int>(nullable: false),
                     FullName = table.Column<string>(nullable: true),
-                    BirthDate = table.Column<DateTime>(nullable: false),
-                    Age = table.Column<int>(nullable: false)
+                    DateOfBirth = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -66,23 +65,6 @@ namespace MIST.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AuditRecords", x => x.Audit_ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Customers",
-                columns: table => new
-                {
-                    CustomerID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Age = table.Column<int>(nullable: false),
-                    PhoneNum = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Address = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Customers", x => x.CustomerID);
                 });
 
             migrationBuilder.CreateTable(
@@ -218,20 +200,48 @@ namespace MIST.Migrations
                 name: "Feedback",
                 columns: table => new
                 {
-                    ID = table.Column<int>(nullable: false)
+                    FeedbackID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustRefID = table.Column<int>(nullable: false),
+                    Id = table.Column<int>(nullable: false),
+                    FullNameId = table.Column<string>(nullable: true),
                     FeedbackText = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Feedback", x => x.ID);
+                    table.PrimaryKey("PK_Feedback", x => x.FeedbackID);
                     table.ForeignKey(
-                        name: "FK_Feedback_Customers_CustRefID",
-                        column: x => x.CustRefID,
-                        principalTable: "Customers",
-                        principalColumn: "CustomerID",
+                        name: "FK_Feedback_AspNetUsers_FullNameId",
+                        column: x => x.FullNameId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SCart",
+                columns: table => new
+                {
+                    ShoppingCartId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    GameId = table.Column<int>(nullable: false),
+                    UserId = table.Column<string>(nullable: true),
+                    Quantity = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SCart", x => x.ShoppingCartId);
+                    table.ForeignKey(
+                        name: "FK_SCart_Game_GameId",
+                        column: x => x.GameId,
+                        principalTable: "Game",
+                        principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SCart_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -274,9 +284,19 @@ namespace MIST.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Feedback_CustRefID",
+                name: "IX_Feedback_FullNameId",
                 table: "Feedback",
-                column: "CustRefID");
+                column: "FullNameId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SCart_GameId",
+                table: "SCart",
+                column: "GameId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SCart_UserId",
+                table: "SCart",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -303,16 +323,16 @@ namespace MIST.Migrations
                 name: "Feedback");
 
             migrationBuilder.DropTable(
-                name: "Game");
+                name: "SCart");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Game");
 
             migrationBuilder.DropTable(
-                name: "Customers");
+                name: "AspNetUsers");
         }
     }
 }

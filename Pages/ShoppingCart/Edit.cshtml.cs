@@ -30,7 +30,7 @@ namespace MIST.Pages.ShoppingCart
                 return NotFound();
             }
 
-            ShoppingCartItem = await _context.ShoppingCartItem
+            ShoppingCartItem = await _context.SCart
                 .Include(s => s.Game).FirstOrDefaultAsync(m => m.ShoppingCartId == id);
 
             if (ShoppingCartItem == null)
@@ -73,7 +73,7 @@ namespace MIST.Pages.ShoppingCart
 
         private bool ShoppingCartItemExists(int id)
         {
-            return _context.ShoppingCartItem.Any(e => e.ShoppingCartId == id);
+            return _context.SCart.Any(e => e.ShoppingCartId == id);
         }
     }
 }

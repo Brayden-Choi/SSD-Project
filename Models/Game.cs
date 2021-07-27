@@ -31,6 +31,11 @@ namespace MIST.Models
 
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
+
+        public static implicit operator Game(int? v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

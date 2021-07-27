@@ -10,9 +10,7 @@ namespace MIST.Models
     public class ApplicationUser : IdentityUser
     {
         public string FullName { get; set; }
-        public string Username { get; set; }
-        public DateTime BirthDate { get; set; }
-        public string PhoneNum { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
     }
 }

@@ -13,7 +13,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using MIST.Models;
+using Stripe;
 
 namespace MIST
 {
@@ -22,6 +24,7 @@ namespace MIST
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            StripeConfiguration.ApiKey = "sk_test_51JHlRJEPlY9TcIjrC4HkuMBATa0UF3wA2oWzVIisLegiNRlsSpd7R55cL7sPOjVCRltxT8LHA5NFjU2bT3JYmgy200iLCWIrCq";
             //testing
         }
 

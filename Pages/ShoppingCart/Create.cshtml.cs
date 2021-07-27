@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
@@ -59,7 +59,7 @@ using MIST.Models;
                 .Include(c => c.Game)
                 .Where(c => c.UserId.Equals(UserID))
                 .ToListAsync();
- */
+
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -91,3 +91,4 @@ using MIST.Models;
         }
     }
 }
+*/
