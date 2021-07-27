@@ -10,11 +10,15 @@ using Microsoft.EntityFrameworkCore;
 using MIST.Data;
 using MIST.Models;
 
-namespace MIST.Pages.ShoppingCart
-{
-    public class CreateModel : PageModel
-    {
-        private readonly MIST.Data.MISTDbContext _context;
+//namespace MIST.Pages.ShoppingCart
+//{
+//    public class CreateModel : PageModel
+//    {
+//        private readonly MIST.Data.MISTDbContext _context;
+//        public CreateModel(MIST.Data.MISTDbContext context)
+//        {
+//            _context = context;
+//        }
 
         public CreateModel(MIST.Data.MISTDbContext context)
         {
@@ -67,10 +71,21 @@ namespace MIST.Pages.ShoppingCart
                 GameId = Game.Id,
                 Quantity = 1;
 
-            }
+//        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+//        // more details, see https://aka.ms/RazorPagesCRUD.
+//        public async Task<IActionResult> OnPostAsync()
+//        {
+//            if (!ModelState.IsValid)
+//            {
+//                return Page();
+//            }
+//            var cartItem = new ShoppingCartItem()
+//            {
+//                ItemId = ShoppingCartItem
+//            }
 
-            _context.ShoppingCartItem.Add(ShoppingCartItem);
-            await _context.SaveChangesAsync();
+//            _context.ShoppingCartItem.Add(ShoppingCartItem);
+//            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
