@@ -4,14 +4,16 @@ using MIST.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MIST.Migrations
 {
     [DbContext(typeof(MISTDbContext))]
-    partial class MISTDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210728085649_test")]
+    partial class test
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,14 +141,8 @@ namespace MIST.Migrations
                     b.Property<DateTime>("DateTimeStamp")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Details")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("KeyMovieFieldID")
                         .HasColumnType("int");
-
-                    b.Property<string>("RoleID")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");

@@ -69,7 +69,21 @@ namespace MIST.Pages.Games
             }
 
             context.Game.Add(Game);
-            await context.SaveChangesAsync();
+            if (await context.SaveChangesAsync() > 0)
+            {
+                // Create an auditrecord object
+                var auditrecord = new AuditRecord();
+                auditrecord.AuditActionType = "Created Game Record";
+                auditrecord.DateTimeStamp = DateTime.Now;
+                auditrecord.KeyMovieFieldID = Game.ID;
+                // Get current logged-in user
+                var userID = User.Identity.Name.ToString();
+                auditrecord.Username = userID;
+
+                context.AuditRecords.Add(auditrecord);
+                await context.SaveChangesAsync();
+            }
+
 
             return RedirectToPage("./Index");
         }

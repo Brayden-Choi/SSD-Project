@@ -22,6 +22,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.AuditRecord[0].KeyMovieFieldID)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuditRecord[0].RoleID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuditRecord[0].Details)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -39,6 +45,12 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.KeyMovieFieldID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
             </td>
             <td>
                 @*<a asp-page="./Edit" asp-route-id="@item.Audit_ID">Edit</a> |*@

@@ -45,6 +45,7 @@ namespace MIST.Pages.Games
             }
 
             Game = await context.Game.FirstOrDefaultAsync((System.Linq.Expressions.Expression<Func<Game, bool>>)(m => m.ID == id));
+            
 
             if (Game == null)
             {
@@ -52,6 +53,7 @@ namespace MIST.Pages.Games
             }
             return Page();
         }
+        
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
@@ -79,12 +81,29 @@ namespace MIST.Pages.Games
                 this.Media.CopyTo(new FileStream(filePath2, FileMode.Create));
                 this.Game.MediaName = fileName2; // Set the file name
             }
-
+            
             context.Attach(Game).State = EntityState.Modified;
 
             try
             {
-                await context.SaveChangesAsync();
+                if (await context.SaveChangesAsync() > 0)
+                {
+
+                    // Create an auditrecord object
+                    var auditrecord = new AuditRecord();
+                    auditrecord.AuditActionType = "Edited Game Record";
+                    auditrecord.DateTimeStamp = DateTime.Now;
+                    auditrecord.KeyMovieFieldID = Game.ID;
+                    auditrecord.Details = Game.Description;
+
+                    // Get current logged-in user
+                    var userID = User.Identity.Name.ToString();
+                    auditrecord.Username = userID;
+
+                    context.AuditRecords.Add(auditrecord);
+                    await context.SaveChangesAsync();
+                }
+
             }
             catch (DbUpdateConcurrencyException)
             {

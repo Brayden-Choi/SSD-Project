@@ -27,6 +27,20 @@ namespace MIST.Models
         [Display(Name = "Game Record ID")]
         public int KeyMovieFieldID { get; set; }
         //Store ID of movie record affected
+
+        [Display(Name = "Role ID")]
+        public string RoleID { get; set; }
+        //Store string of role added
+
+        [Display(Name = "Details")]
+        public string Details { get; set; }
+        //extra data
+
+        [Display(Name = "Before")]
+        public string Before { get; set; }
+
+        [Display(Name = "After")]
+        public string After { get; set; }
     }
 
 }
