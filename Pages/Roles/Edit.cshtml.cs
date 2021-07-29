@@ -13,12 +13,13 @@ namespace MIST.Pages.Roles
     [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
+        private readonly MIST.Data.MISTDbContext _context;
         private readonly RoleManager<ApplicationRole> _roleManager;
 
-
-        public EditModel(RoleManager<ApplicationRole> roleManager)
+        public EditModel(RoleManager<ApplicationRole> roleManager, MIST.Data.MISTDbContext context)
         {
             _roleManager = roleManager;
+            _context = context;
         }
 
         [BindProperty]
@@ -26,6 +27,7 @@ namespace MIST.Pages.Roles
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -54,6 +56,20 @@ namespace MIST.Pages.Roles
             appRole.Description = ApplicationRole.Description;
 
             IdentityResult roleRuslt = await _roleManager.UpdateAsync(appRole);
+
+            // Create an auditrecord object
+            var auditrecord = new AuditRecord();
+            auditrecord.AuditActionType = "Edited role";
+            auditrecord.DateTimeStamp = DateTime.Now;
+            auditrecord.RoleID = ApplicationRole.Name;
+            //auditrecord.Details = old.ToString();
+
+            // Get current logged-in user
+            var userID = User.Identity.Name.ToString();
+            auditrecord.Username = userID;
+
+            _context.AuditRecords.Add(auditrecord);
+            await _context.SaveChangesAsync();
 
             if (roleRuslt.Succeeded)
             {

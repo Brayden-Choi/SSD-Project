@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 using MIST.Models;
+using System;
 
 namespace MIST.Pages.Roles
 {
@@ -37,6 +38,7 @@ namespace MIST.Pages.Roles
         public string delusername { set; get; }
 
         public int usercountinrole { set; get; }
+        public ApplicationRole ApplicationRole { get; set; }
         public IList<ApplicationRole> Listroles { get; set; }
 
         public string ListUsersInRole(string rolename)
@@ -89,6 +91,21 @@ namespace MIST.Pages.Roles
             if (roleResult.Succeeded)
             {
                 TempData["message"] = "Role added to this user successfully";
+
+                // Create an auditrecord object
+                var auditrecord = new AuditRecord();
+                auditrecord.AuditActionType = "Added user to role";
+                auditrecord.DateTimeStamp = DateTime.Now;
+                auditrecord.RoleID = AppRole.Name;
+                auditrecord.Details = "User: " + AppUser.UserName.ToString();
+
+                // Get current logged-in user
+                var userID = User.Identity.Name.ToString();
+                auditrecord.Username = userID;
+
+                _context.AuditRecords.Add(auditrecord);
+                await _context.SaveChangesAsync();
+
                 return RedirectToPage("Manage");
             }
 
@@ -110,6 +127,21 @@ namespace MIST.Pages.Roles
                 await _userManager.RemoveFromRoleAsync(user, delrolename);
 
                 TempData["message"] = "Role removed from this user successfully";
+
+                // Create an auditrecord object
+                var auditrecord = new AuditRecord();
+                auditrecord.AuditActionType = "Removed user from role";
+                auditrecord.DateTimeStamp = DateTime.Now;
+                auditrecord.RoleID = delrolename;
+                auditrecord.Details = "User: " + delusername.ToString();
+
+                // Get current logged-in user
+                var userID = User.Identity.Name.ToString();
+                auditrecord.Username = userID;
+
+                _context.AuditRecords.Add(auditrecord);
+                await _context.SaveChangesAsync();
+
             }
 
             return RedirectToPage("Manage");

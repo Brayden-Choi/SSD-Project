@@ -13,11 +13,13 @@ namespace MIST.Pages.Roles
     [Authorize(Roles = "Admin")]
     public class DeleteModel : PageModel
     {
+        private readonly MIST.Data.MISTDbContext _context;
         private readonly RoleManager<ApplicationRole> _roleManager;
 
-        public DeleteModel(RoleManager<ApplicationRole> roleManager)
+        public DeleteModel(RoleManager<ApplicationRole> roleManager, MIST.Data.MISTDbContext context)
         {
             _roleManager = roleManager;
+            _context = context;
         }
 
         [BindProperty]
@@ -48,6 +50,19 @@ namespace MIST.Pages.Roles
 
             ApplicationRole = await _roleManager.FindByIdAsync(id);
             IdentityResult roleRuslt = await _roleManager.DeleteAsync(ApplicationRole);
+
+            // Create an auditrecord object
+            var auditrecord = new AuditRecord();
+            auditrecord.AuditActionType = "Deleted role";
+            auditrecord.DateTimeStamp = DateTime.Now;
+            auditrecord.RoleID = ApplicationRole.Name;
+
+            // Get current logged-in user
+            var userID = User.Identity.Name.ToString();
+            auditrecord.Username = userID;
+
+            _context.AuditRecords.Add(auditrecord);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
 

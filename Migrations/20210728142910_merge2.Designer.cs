@@ -4,14 +4,16 @@ using MIST.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MIST.Migrations
 {
     [DbContext(typeof(MISTDbContext))]
-    partial class MISTDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210728142910_merge2")]
+    partial class merge2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

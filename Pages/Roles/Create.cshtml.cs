@@ -11,11 +11,13 @@ namespace MIST.Pages.Roles
     [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
+        private readonly MIST.Data.MISTDbContext _context;
         private readonly RoleManager<ApplicationRole> _roleManager;
 
-        public CreateModel(RoleManager<ApplicationRole> roleManager)
+        public CreateModel(RoleManager<ApplicationRole> roleManager, MIST.Data.MISTDbContext context)
         {
             _roleManager = roleManager;
+            _context = context;
         }
 
         public IActionResult OnGet()
@@ -37,6 +39,19 @@ namespace MIST.Pages.Roles
             ApplicationRole.IPAddress = Request.HttpContext.Connection.RemoteIpAddress.ToString();
 
             IdentityResult roleRuslt = await _roleManager.CreateAsync(ApplicationRole);
+
+            // Create an auditrecord object
+            var auditrecord = new AuditRecord();
+            auditrecord.AuditActionType = "Created new role";
+            auditrecord.DateTimeStamp = DateTime.Now;
+            auditrecord.RoleID = ApplicationRole.Name;
+
+            // Get current logged-in user
+            var userID = User.Identity.Name.ToString();
+            auditrecord.Username = userID;
+
+            _context.AuditRecords.Add(auditrecord);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("Index");
         }
