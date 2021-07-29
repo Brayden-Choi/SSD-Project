@@ -36,7 +36,7 @@ namespace MIST.Pages.ShoppingCart
                 .ToListAsync();
         }
 
-        public async Task<StatusCodeResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync()
         {
             var UserID = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
@@ -47,7 +47,7 @@ namespace MIST.Pages.ShoppingCart
 
             if (ShoppingCartItem.Count == 0)
             {
-                return NotFound();
+                return RedirectToPage("./Index");
             }
             
             var LineItems = new List<SessionLineItemOptions>();
@@ -83,6 +83,7 @@ namespace MIST.Pages.ShoppingCart
                 Mode = "payment",
                 SuccessUrl = url+ "/ShoppingCart/Paid",
                 CancelUrl = url + "/ShoppingCart/Index",
+                BillingAddressCollection = "required"
             };
 
             var service = new SessionService();

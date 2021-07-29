@@ -6,12 +6,30 @@
 @{
     ViewData["Title"] = "Shopping Cart";
 }
+<style>
+    button {
+        display:inline-block;
+        padding:0.35em 1.2em;
+        border:0.1em solid black;
+        margin:0 0.3em 0.3em 0;
+        border-radius:0.12em;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family:'Roboto',sans-serif;
+        font-weight:600;
+        color:black;
+        text-align:center;
+        transition: all 0.2s;
+        background-color: white;
+    }
+    button:hover{
+        color:white;
+        background-color:black;
+    }
+    
+</style>
+<h1>Shopping Cart</h1>
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -26,11 +44,10 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Game.ID)
+                    @Html.DisplayFor(modelItem => item.Game.Name)
                 </td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.ShoppingCartId">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.ShoppingCartId">Details</a> |
                     <a asp-page="./Delete" asp-route-id="@item.ShoppingCartId">Delete</a>
                 </td>
             </tr>
@@ -40,7 +57,8 @@
 
 
 </table>
-
-<form method="POST">
-    <button type="submit">Checkout</button>
-</form>
+<div>
+    <form method="POST">
+        <button type="submit">Checkout</button>
+    </form>
+</div>
