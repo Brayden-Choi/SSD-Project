@@ -13,6 +13,26 @@
             max-width: 100%;
             height: auto;
         }
+        
+        button {
+             display:inline-block;
+             padding:0.35em 1.2em;
+             border:0.1em solid black;
+             margin:0 0.3em 0.3em 0;
+             border-radius:0.12em;
+             box-sizing: border-box;
+             text-decoration:none;
+             font-family:'Roboto',sans-serif;
+             font-weight:600;
+             color:black;
+             text-align:center;
+             transition: all 0.2s;
+             background-color: white;
+         }
+        button:hover{
+            color:white;
+            background-color:black;
+        }
     </style>
 </head>
 
@@ -85,7 +105,7 @@
 
 <div>
     <form method="POST">
-        <button value="Add to Cart"></button>
+        <button value="Add to Cart">Add to Cart</button>
     </form>
 </div>
 
