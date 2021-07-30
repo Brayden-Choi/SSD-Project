@@ -35,12 +35,6 @@ namespace MIST.Models
         [Display(Name = "Details")]
         public string Details { get; set; }
         //extra data
-
-        [Display(Name = "Before")]
-        public string Before { get; set; }
-
-        [Display(Name = "After")]
-        public string After { get; set; }
     }
 
 }
