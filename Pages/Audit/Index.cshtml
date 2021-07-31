@@ -4,60 +4,73 @@
 @{
     ViewData["Title"] = "Audit Log";
 }
+<head>
+    <style>
+        body {
+            background-color: black;
+        }
 
-<h1>Index</h1>
+        th, td, h1 {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Index</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.AuditRecord[0].AuditActionType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AuditRecord[0].Username)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AuditRecord[0].DateTimeStamp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AuditRecord[0].KeyMovieFieldID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AuditRecord[0].RoleID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AuditRecord[0].Details)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.AuditRecord) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.AuditActionType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateTimeStamp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KeyMovieFieldID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoleID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Details)
-            </td>
-            <td>
-                @*<a asp-page="./Edit" asp-route-id="@item.Audit_ID">Edit</a> |*@
-                <a asp-page="./Details" asp-route-id="@item.Audit_ID">Details</a>
-                @*<a asp-page="./Delete" asp-route-id="@item.Audit_ID">Delete</a>*@
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AuditRecord[0].AuditActionType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AuditRecord[0].Username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AuditRecord[0].DateTimeStamp)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AuditRecord[0].KeyMovieFieldID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AuditRecord[0].RoleID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AuditRecord[0].Details)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AuditRecord)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AuditActionType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateTimeStamp)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KeyMovieFieldID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoleID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Details)
+                    </td>
+                    <td>
+                        @*<a asp-page="./Edit" asp-route-id="@item.Audit_ID">Edit</a> |*@
+                        <a asp-page="./Details" asp-route-id="@item.Audit_ID">Details</a>
+                        @*<a asp-page="./Delete" asp-route-id="@item.Audit_ID">Delete</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

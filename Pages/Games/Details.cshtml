@@ -33,9 +33,17 @@
             color:white;
             background-color:black;
         }
+
+        body{
+            background-color: black;
+        }
+
+        h1, h4, dt, dd{
+            color: white;
+        }
     </style>
 </head>
-
+<body>
 <div>
     <h4>Game</h4>
     <hr />
@@ -113,3 +121,4 @@
     <a asp-page="./Edit" asp-route-id="@Model.Game.ID">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
+</body>

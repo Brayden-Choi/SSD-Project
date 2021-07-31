@@ -3,7 +3,17 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
+<head>
+    <style>
+        body{
+            background-color: black;
+        }
+        h2,label{
+            color: white;
+        }
+    </style>
+</head>
+<body>
 <h2>Edit Application Role</h2>
 <hr />
 <div class="row">
@@ -23,7 +33,7 @@
             <input type="hidden" asp-for="ApplicationRole.Id" />
          
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
 
@@ -33,7 +43,7 @@
 <div>
     <a asp-page="./Index">Back to List</a>
 </div>
-
+</body>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

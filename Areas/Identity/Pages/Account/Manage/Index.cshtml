@@ -4,7 +4,13 @@
     ViewData["Title"] = "Profile";
     ViewData["ActivePage"] = ManageNavPages.Index;
 }
-
+<head>
+    <style>
+        label {
+            color: white;
+        }
+    </style>
+</head>
 <h4>@ViewData["Title"]</h4>
 <partial name="_StatusMessage" model="Model.StatusMessage" />
 <div class="row">

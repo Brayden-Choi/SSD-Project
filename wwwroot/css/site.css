@@ -15,14 +15,14 @@ a {
 
 .btn-primary {
     color: white;
-    background-color: #00FFFF !important;
-    border-color: #00FFFF !important;
+    background-color: #6b6b4e !important;
+    border-color: #6b6b4e !important;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: white;
-    background-color: #00FFFF !important;
-    border-color: #00FFFF !important;
+    color: blueviolet;
+    background-color: #6b6b4e !important;
+    border-color: #6b6b4e !important;
 }
 
 /* Sticky footer styles
@@ -72,7 +72,7 @@ body {
 }
 
 .navbar {
-    background-color: grey;
+    background-color: black;
+    border: solid 2px #6b6b4e;
+    border-radius: 1px;
 }
-
-

@@ -87,7 +87,7 @@ namespace MIST
                 //options.AccessDeniedPath = "/Account/AccessDenied";
 
                 options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromSeconds(30);
+                options.ExpireTimeSpan = TimeSpan.FromSeconds(600);
                 options.SlidingExpiration = true;
             });
 

@@ -18,7 +18,7 @@ namespace MIST.Models
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
 
-        [Required]
+       //[Required]
         [Display(Name = "Feedback")]
         public string FeedbackText { get; set; }
     }
