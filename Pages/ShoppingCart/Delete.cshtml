@@ -17,7 +17,31 @@
             @Html.DisplayNameFor(model => model.ShoppingCartItem.Game)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ShoppingCartItem.Game.ID)
+            @Html.DisplayFor(model => model.ShoppingCartItem.Game.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShoppingCartItem.Game.MediaName)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="~/uploads/@Model.ShoppingCartItem.Game.MediaName" />
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShoppingCartItem.Game.FileType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShoppingCartItem.Game.FileType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShoppingCartItem.Game.Device)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShoppingCartItem.Game.Device)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ShoppingCartItem.Game.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ShoppingCartItem.Game.Price)
         </dd>
     </dl>
     

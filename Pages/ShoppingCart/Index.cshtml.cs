@@ -11,9 +11,12 @@ using Microsoft.Extensions.Options;
 using Stripe;
 using Stripe.Checkout;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MIST.Pages.ShoppingCart
 {
+    [Authorize(Roles = "User")]
+
     public class IndexModel : PageModel
     {
         private readonly MIST.Data.MISTDbContext _context;

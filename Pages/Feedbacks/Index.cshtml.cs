@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,8 @@ using MIST.Models;
 
 namespace MIST.Pages.Feedbacks
 {
+    [Authorize(Roles = "Admin, Staff")]
+
     public class IndexModel : PageModel
     {
         private readonly MIST.Data.MISTDbContext _context;
