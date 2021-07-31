@@ -4,12 +4,22 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<head>
+    <style>
+        h1, h3, dt, dd {
+            color: white;
+        }
 
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
 <h1>Delete</h1>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Feedback</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -32,3 +42,4 @@
         <a asp-page="./Index">Back to List</a>
     </form>
 </div>
+</body>

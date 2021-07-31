@@ -1,0 +1,46 @@
+﻿@page
+@model MIST.Pages.ShoppingCart.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<head>
+    <style>
+        body{
+            background-color: black;
+        }
+
+        h1, h4, label {
+            color: white;
+        }
+    </style>
+</head>
+<h1>Edit</h1>
+<body>
+<h4>Shopping Cart Item</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ShoppingCartItem.ShoppingCartId" />
+            <div class="form-group">
+                <label asp-for="ShoppingCartItem.GameId" class="control-label"></label>
+                <select asp-for="ShoppingCartItem.GameId" class="form-control" asp-items="ViewBag.GameId"></select>
+                <span asp-validation-for="ShoppingCartItem.GameId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
