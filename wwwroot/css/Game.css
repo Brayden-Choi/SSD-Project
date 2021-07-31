@@ -17,6 +17,7 @@
     text-align: center;
     transition: all 0.2s;
     background-color: white;
+    border-radius: 5px;
 }
 
 .filterbtn:hover {
@@ -37,5 +38,17 @@ table {
 }
 
 .filter-text {
+    color: white;
+}
+
+td, th {
+    color: white;
+}
+
+.optionbox {
+    border-radius: 10px;
+}
+
+.games-title {
     color: white;
 }

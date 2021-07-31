@@ -6,7 +6,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Games</h1>
+<h1 class="games-title">Games</h1>
 
 <head>
     <link rel="stylesheet" href="/css/Game.css">
@@ -17,7 +17,7 @@
     <a class="create-text" asp-page="Create">Create New</a>
 </p>
 <form>
-    <p class="filter-text">
+    <p class="filter-text ">
         Genre: <select asp-for="Genre" asp-items="Model.Genres">
             <option value="">All</option>
         </select>
