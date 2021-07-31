@@ -6,7 +6,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Games</h1>
+<h1 class="games-title">Games</h1>
 
 <head>
     <link rel="stylesheet" href="/css/Game.css">
@@ -17,7 +17,7 @@
     <a class="create-text" asp-page="Create">Create New</a>
 </p>
 <form>
-    <p class="filter-text">
+    <p class="filter-text ">
         Genre: <select asp-for="Genre" asp-items="Model.Genres">
             <option value="">All</option>
         </select>
@@ -65,9 +65,17 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                @if (User.IsInRole("Admin") || User.IsInRole("Staff"))
+                {
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit |</a>
+                }
+
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                @if (User.IsInRole("Admin") || User.IsInRole("Staff"))
+                {
+                    <a asp-page="./Delete" asp-route-id="@item.ID">| Delete</a>
+                }
+                
             </td>
         </tr>
 }

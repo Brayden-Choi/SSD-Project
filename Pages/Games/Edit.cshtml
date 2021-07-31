@@ -4,11 +4,24 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<head>
+    <style>
+        body{
+            background-color: black
+        }
 
-<h1>Edit</h1>
+        label {
+            color: white;
+        }
 
-<h4>Game</h4>
+        .edit-text {
+            color: white;
+        }
+    </style>
+</head>
+<h1 class="edit-text">Edit</h1>
 <hr />
+<body>
 <div class="row">
     <div class="col-md-4">
         <form method="post" enctype="multipart/form-data">
@@ -83,3 +96,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+</body>
