@@ -26,39 +26,47 @@
         color:white;
         background-color:black;
     }
+    body{
+        background-color: black;
+    }
+    h1, th, td{
+        color: white;
+    }
     
 </style>
-<h1>Shopping Cart</h1>
+<body>
+    <h1>Shopping Cart</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ShoppingCartItem[0].Game)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.ShoppingCartItem)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Game.Name)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.ShoppingCartId">Edit</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.ShoppingCartId">Delete</a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.ShoppingCartItem[0].Game)
+                </th>
+                <th></th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ShoppingCartItem)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Game.Name)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.ShoppingCartId">Edit</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ShoppingCartId">Delete</a>
+                    </td>
+                </tr>
+            }
 
-    </tbody>
+        </tbody>
 
 
-</table>
-<div>
-    <form method="POST">
-        <button type="submit">Checkout</button>
-    </form>
-</div>
+    </table>
+    <div>
+        <form method="POST">
+            <button type="submit">Checkout</button>
+        </form>
+    </div>
+</body>

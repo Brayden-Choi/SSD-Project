@@ -5,10 +5,20 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
+<head>
+    <style>
+        body{
+            background-color: black;
+        }
 
+        h1, h4, label {
+            color: white;
+        }
+    </style>
+</head>
 <h1>Edit</h1>
-
-<h4>ShoppingCartItem</h4>
+<body>
+<h4>Shopping Cart Item</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -30,7 +40,7 @@
 <div>
     <a asp-page="./Index">Back to List</a>
 </div>
-
+</body>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

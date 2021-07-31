@@ -4,7 +4,16 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<head>
+    <style>
+        body{
+            background-color: black;
+        }
+        h1, th, td{
+            color: white; 
+        }
+    </style>
+</head>
 <h1>Submissions</h1>
 
 <p>
@@ -32,8 +41,8 @@
                 @Html.DisplayFor(modelItem => item.FeedbackText)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.FeedbackId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.FeedbackId">Details</a> |
+                <a asp-page="./Edit" asp-route-id="@item.FeedbackId">Edit |</a> 
+                <a asp-page="./Details" asp-route-id="@item.FeedbackId">Details |</a> 
                 <a asp-page="./Delete" asp-route-id="@item.FeedbackId">Delete</a>
             </td>
         </tr>
