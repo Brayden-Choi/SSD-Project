@@ -44,6 +44,8 @@ namespace MIST
             services.AddSession();
             services.AddMvc();
 
+          
+
             services.Configure<IdentityOptions>(options =>
             {
                 // Password settings
@@ -75,8 +77,20 @@ namespace MIST
                 options.AccessDeniedPath = "/Identity/Account/AccessDenied";
                 options.SlidingExpiration = true;
             });
-                      
-                
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.Name = ".MIST.Identity.Application";
+                //options.Cookie.Domain=
+                //options.LoginPath = "/Account/Login";
+                //options.LogoutPath = "/Account/Logout";
+                //options.AccessDeniedPath = "/Account/AccessDenied";
+
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromSeconds(30);
+                options.SlidingExpiration = true;
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -11,6 +12,7 @@ using MIST.Models;
 
 namespace MIST.Pages.Feedbacks
 {
+    [Authorize(Roles = "User")]
     public class CreateModel : PageModel
     {
         private readonly MIST.Data.MISTDbContext _context;
