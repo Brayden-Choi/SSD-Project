@@ -118,7 +118,10 @@
 </div>
 
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Game.ID">Edit</a> |
+    @if (User.IsInRole("Admin") || User.IsInRole("Staff"))
+    {
+        <a asp-page="./Edit" asp-route-id="@Model.Game.ID">Edit |</a>
+    }
     <a asp-page="./Index">Back to List</a>
 </div>
 </body>

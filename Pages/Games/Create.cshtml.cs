@@ -42,9 +42,11 @@ namespace MIST.Pages.Games
         [BindProperty]
         public IFormFile Media { set; get; }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+      
+
+    // To protect from overposting attacks, enable the specific properties you want to bind to, for
+    // more details, see https://aka.ms/RazorPagesCRUD.
+    public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
 

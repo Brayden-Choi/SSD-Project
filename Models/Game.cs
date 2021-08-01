@@ -10,8 +10,10 @@ namespace MIST.Models
     {
         public int ID { get; set; }
 
-        [StringLength(50)]
+        [RegularExpression(@"^[a-zA-Z\s]*$",
+         ErrorMessage = "Please enter a valid Name")]
         [Required]
+        [StringLength(50)]
         public string Name { get; set; }
 
         [Display(Name = "Cover Image")]
@@ -24,28 +26,38 @@ namespace MIST.Models
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
 
-        [StringLength(15)]
+        [RegularExpression(@"^[a-zA-Z\s]*$",
+         ErrorMessage = "Please enter a valid Genre")]
         public string Genre { get; set; }
-        
-        [StringLength(9)]
+
+        [RegularExpression(@"^[a-zA-Z\s]*$")]
         [Required]
+        [StringLength(9)]
         [Display(Name = "File Type")]
         public string FileType { get; set; }
 
-        [StringLength(20)]
+        [RegularExpression(@"^[a-zA-Z\s]*$",
+         ErrorMessage = "Please enter a valid Device")]
         [Required]
+        [StringLength(20)]
         public string Device { get; set; }
 
-        [StringLength(250)]
+        [RegularExpression(@"^[a-zA-Z\s]*$",
+         ErrorMessage = "Please enter valid text")]
         [Required]
+        [StringLength(250)]
         public string Description { get; set; }
 
-        [StringLength(50)]
+        [RegularExpression(@"^[a-zA-Z\s]*$",
+        ErrorMessage = "Please enter a valid Developer Name")]
         [Required]
+        [StringLength(50)]
         public string Developer { get; set; }
 
-        [StringLength(50)]
+        [RegularExpression(@"^[a-zA-Z\s]*$",
+        ErrorMessage = "Please enter a valid Publisher Name")]
         [Required]
+        [StringLength(50)]
         public string Publisher { get; set; }
 
         [Column(TypeName = "decimal(18, 2)")]
