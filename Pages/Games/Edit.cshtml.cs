@@ -81,7 +81,7 @@ namespace MIST.Pages.Games
                 this.Media.CopyTo(new FileStream(filePath2, FileMode.Create));
                 this.Game.MediaName = fileName2; // Set the file name
             }
-            
+
             context.Attach(Game).State = EntityState.Modified;
 
             try

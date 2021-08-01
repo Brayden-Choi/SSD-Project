@@ -54,7 +54,10 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="Game.FileType" class="control-label"></label>
-                    <input asp-for="Game.FileType" class="form-control" />
+                    <input asp-for="Game.FileType" class="form-control" type="radio" id="SoftCopy" value="Soft Copy" />
+                    <label for="SoftCopy">Soft Copy</label><br>
+                    <input asp-for="Game.FileType" class="form-control" type="radio" id="HardCopy" value="Hard Copy" />
+                    <label for="HardCopy">Hard Copy</label><br>
                     <span asp-validation-for="Game.FileType" class="text-danger"></span>
                 </div>
                 <div class="form-group">
