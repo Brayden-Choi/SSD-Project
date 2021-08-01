@@ -42,10 +42,10 @@ namespace MIST.Models
         [StringLength(20)]
         public string Device { get; set; }
 
-        [RegularExpression(@"^[a-zA-Z\s]*$",
-         ErrorMessage = "Please enter valid text")]
-        [Required]
-        [StringLength(250)]
+        //[RegularExpression(@"^[a-zA-Z\s]*$",
+        // ErrorMessage = "Please enter valid text")]
+        //[Required]
+        //[StringLength(250)]
         public string Description { get; set; }
 
         [RegularExpression(@"^[a-zA-Z\s]*$",
