@@ -18,8 +18,13 @@ namespace MIST.Models
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
 
-       //[Required]
+
+        [RegularExpression(@"[a-zA-Z\s]*$",
+        ErrorMessage = "Please enter a valid text")]
+        //[Required]
+        [StringLength(200)]
         [Display(Name = "Feedback")]
+
         public string FeedbackText { get; set; }
     }
 }

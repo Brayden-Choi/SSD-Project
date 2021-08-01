@@ -39,12 +39,17 @@
 
 <table class="table">
     <thead>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ShoppingCartItem[0].Game)
-        </th>
-        <th></th>
-    </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ShoppingCartItem[0].Game)
+            </th>
+            <th>
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShoppingCartItem[0].Game.Price)
+            </th>
+        </tr>
     </thead>
     <tbody>
     @foreach (var item in Model.ShoppingCartItem)
@@ -53,8 +58,13 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Game.Name)
             </td>
+            <td class="indexImg">
+                <img src="~/uploads/@item.Game.CoverImageName" />
+            </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ShoppingCartId">Edit</a> |
+                @Html.DisplayFor(modelItem => item.Game.Price)
+            </td>
+            <td>
                 <a asp-page="./Delete" asp-route-id="@item.ShoppingCartId">Delete</a>
             </td>
         </tr>

@@ -26,8 +26,8 @@ namespace MIST.Models
                     {
                         Name = "Kingdom Spade III",
                         ReleaseDate = DateTime.Parse("2021-3-30"),
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "KingdomSpadeIIICoverImage.jfif",
+                        MediaName = "KingdomSpadeIIIMediaImage.jpg",
                         Genre = "Fantasy",
                         FileType = "Soft Copy",
                         Device = "PC",
@@ -41,8 +41,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "Undercooked!",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "UndercookedCoverImage.jpg",
+                        MediaName = "UndercookedMediaImage.jpg",
                         ReleaseDate = DateTime.Parse("2018-8-7"),
                         Genre = "Simulation",
                         FileType = "Soft Copy",
@@ -57,8 +57,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "Imshin Genpact",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "ImshinGenpactCoverImage.jpg",
+                        MediaName = "ImshinGenpactMediaImage.jpg",
                         ReleaseDate = DateTime.Parse("2020-9-28"),
                         Genre = "RPG",
                         FileType = "Soft Copy",
@@ -74,8 +74,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "Socket League",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "SocketLeagueCoverImage.jpg",
+                        MediaName = "SocketLeagueMediaImage.jpg",
                         ReleaseDate = DateTime.Parse("2020-9-24"),
                         Genre = "Football",
                         FileType = "Soft Copy",
@@ -90,8 +90,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "The Manley Parable",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "TheManleyParableCoverImage.jpg",
+                        MediaName = "TheManleyParableCoverMedia.png",
                         ReleaseDate = DateTime.Parse("2013-10-17"),
                         Genre = "Indie",
                         FileType = "Soft Copy",
@@ -106,8 +106,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "=Claus=",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "ClausCoverImage.png",
+                        MediaName = "ClausMediaImage.jpg",
                         ReleaseDate = DateTime.Parse("2016-1-19"),
                         Genre = "Indie",
                         FileType = "Hard Copy",
@@ -122,8 +122,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "The Land Adventure of the Last Merman",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "TheLandAdventureOfTheLastMermanCoverImage.png",
+                        MediaName = "TheLandAdventureOfTheLastMermanMediaImage.jpg",
                         ReleaseDate = DateTime.Parse("2016-1-19"),
                         Genre = "Adventure",
                         FileType = "Hard Copy",
@@ -138,8 +138,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "Punking the Cyber 7702",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "PunkingTheCyber7702XBOXCoverImage.jpeg",
+                        MediaName = "PunkingTheCyber7702XBOXMediaImage.jpeg",
                         ReleaseDate = DateTime.Parse("2020-12-10"),
                         Genre = "Sci-Fi",
                         FileType = "Hard Copy",
@@ -154,8 +154,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "Punking the Cyber 7702",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "PunkingTheCyber7702PCCoverImage.jpeg",
+                        MediaName = "PunkingTheCyber7702PCMediaImage.jpeg",
                         ReleaseDate = DateTime.Parse("2020-12-10"),
                         Genre = "Sci-Fi",
                         FileType = "Hard Copy",
@@ -170,8 +170,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "The Smis",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "TheSmisCoverImage.jpg",
+                        MediaName = "TheSmisMediaImage.jpg",
                         ReleaseDate = DateTime.Parse("2000-02-4"),
                         Genre = "Simulation",
                         FileType = "Hard Copy",
@@ -186,8 +186,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "Luigi Kart 10.0 Deluxe",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "LuigiKart10.0DeluxeCoverImage.jfif",
+                        MediaName = "LuigiKart10.0DeluxeMediaImage.jpg",
                         ReleaseDate = DateTime.Parse("2020-12-10"),
                         Genre = "Racing",
                         FileType = "Hard Copy",
@@ -201,15 +201,15 @@ namespace MIST.Models
 
                     new Game
                     {
-                        Name = "Cunter-Strike: Local Defensive",
-                        CoverImageName = "",
-                        MediaName = "",
+                        Name = "Bounter-Strike: Local Defensive",
+                        CoverImageName = "BounterStrikeCoverImage.jpg",
+                        MediaName = "BounterStrikeMediaImage.jpg",
                         ReleaseDate = DateTime.Parse("2012-08-22"),
                         Genre = "FPS",
                         FileType = "Soft Copy",
                         Device = "PC",
                         Description =
-                            "Cunter-Strike: Local Defensive (CSLD) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: LD features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dirt2, etc.).",
+                            "Bounter-Strike: Local Defensive (BSLD) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: LD features new maps, characters, weapons, and game modes, and delivers updated versions of the classic BS content (de_dirt2, etc.).",
                         Developer = "Vulve, Unhidden Trail Entertainment",
                         Publisher = "Vulve",
                         Price = 12.99M
@@ -219,8 +219,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "Run n Gun",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "RunNGunCoverImage.jpg",
+                        MediaName = "RunNGunCoverImage.png",
                         ReleaseDate = DateTime.Parse("2020-06-2"),
                         Genre = "FPS",
                         FileType = "Soft Copy",
@@ -229,14 +229,14 @@ namespace MIST.Models
                             "A super realistic game where players can just run and gun and headshot other players",
                         Developer = "Protest Games",
                         Publisher = "Protest Games",
-                        Price = 0.01M
+                        Price = 0.00M
                     },
 
                     new Game
                     {
                         Name = "F1 2021",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "F12021CoverImage.jpg",
+                        MediaName = "F12021MediaImage.jpg",
                         ReleaseDate = DateTime.Parse("2021-07-15"),
                         Genre = "Racing",
                         FileType = "Soft Copy",
@@ -251,8 +251,8 @@ namespace MIST.Models
                     new Game
                     {
                         Name = "FIFA 22",
-                        CoverImageName = "",
-                        MediaName = "",
+                        CoverImageName = "FIFA22CoverImage.jpg",
+                        MediaName = "FIFA22CoverImage.jpg",
                         ReleaseDate = DateTime.Parse("2021-7-17"),
                         Genre = "Football",
                         FileType = "Soft Copy",
