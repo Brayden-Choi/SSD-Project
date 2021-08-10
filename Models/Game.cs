@@ -10,7 +10,7 @@ namespace MIST.Models
     {
         public int ID { get; set; }
 
-        [RegularExpression(@"^[A-Za-z0-9:!]*[A-Za-z0-9:!][A-Za-z0-9 :!]*$",
+        [RegularExpression(@"^[A-Za-z0-9 :!]*[A-Za-z0-9:!][A-Za-z0-9 :!]*$",
          ErrorMessage = "Please enter a valid Name")]
         [Required]
         [StringLength(50)]
@@ -42,19 +42,19 @@ namespace MIST.Models
         [StringLength(20)]
         public string Device { get; set; }
 
-        [RegularExpression(@"^[A-Za-z0-9!.?]*[A-Za-z0-9!.?][A-Za-z0-9 !.?]*$",
+        [RegularExpression(@"^[A-Za-z0-9 !.?,]*[A-Za-z0-9!.?,][A-Za-z0-9 !.?,]*$",
         ErrorMessage = "Please enter valid text")]
         [Required]
         [StringLength(250)]
         public string Description { get; set; }
 
-        [RegularExpression(@"^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]*$",
+        [RegularExpression(@"^[A-Za-z0-9 ]*[A-Za-z0-9][A-Za-z0-9 ]*$",
         ErrorMessage = "Please enter a valid Developer Name")]
         [Required]
         [StringLength(50)]
         public string Developer { get; set; }
 
-        [RegularExpression(@"^[A-Za-z0-9]*[A-Za-z0-9][A-Za-z0-9]*$",
+        [RegularExpression(@"^[A-Za-z0-9 ]*[A-Za-z0-9][A-Za-z0-9 ]*$",
         ErrorMessage = "Please enter a valid Publisher Name")]
         [Required]
         [StringLength(50)]
