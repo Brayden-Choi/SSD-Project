@@ -13,6 +13,11 @@
         h1, h3, h4, dt, dd {
             color: white;
         }
+
+        img {
+            height: 20vh;
+            width: 20vw;
+        }
     </style>
 </head>
 <body>
@@ -29,23 +34,8 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Game.Name)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Game.CoverImageName)
-        </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game.CoverImageName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Game.MediaName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game.MediaName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Game.ReleaseDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game.ReleaseDate)
+            <img src="~/uploads/@Model.Game.CoverImageName" />
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Game.Genre)
