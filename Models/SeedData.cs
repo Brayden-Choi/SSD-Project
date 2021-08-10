@@ -67,7 +67,7 @@ namespace MIST.Models
                             "Embark on a journey across Tavyet to find your lost sibling and seek answers from The Seven — the 7-11 managers. Explore this wondrous world, join forces with a diverse range of characters, and unravel the countless mysteries that Tavyet holds...",
                         Developer = "YoHomi Unlimited",
                         Publisher = "YOHomi Unlimited",
-                        Price = 0M
+                        Price = 0.10M
                     },
 
 
@@ -84,7 +84,7 @@ namespace MIST.Models
                             "Socket League is a high-powered hybrid of arcade-style soccer and technological mayhem with easy-to-understand controls and fluid, electrical-driven competition.",
                         Developer = "PSY",
                         Publisher = "PSY",
-                        Price = 0M
+                        Price = 0.10M
                     },
 
                     new Game
@@ -100,7 +100,7 @@ namespace MIST.Models
                             "The Manley Parable is a first person exploration game. You will play as Stanley, and you will not play as Manley. You will follow a story, you will not follow a story. You will have a choice, you will have no choice. The game will end, the game will never end.",
                         Developer = "Galaxy Eatery",
                         Publisher = "Galaxy Eatery",
-                        Price = 0M
+                        Price = 0.10M
                     },
 
                     new Game
@@ -229,7 +229,7 @@ namespace MIST.Models
                             "A super realistic game where players can just run and gun and headshot other players",
                         Developer = "Protest Games",
                         Publisher = "Protest Games",
-                        Price = 0.00M
+                        Price = 0.10M
                     },
 
                     new Game
