@@ -44,83 +44,85 @@
     </style>
 </head>
 <body>
-<div>
-    <h4>Game</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Game.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game.Name)
-        </dd>
-        <dt class="col-sm-2">
-        </dt>
-        <dd class="col-sm-10">
-            <img src="~/uploads/@Model.Game.MediaName" />
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Game.ReleaseDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game.ReleaseDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Game.Genre)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game.Genre)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Game.FileType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game.FileType)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Game.Device)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game.Device)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Game.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Game.Developer)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game.Developer)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Game.Publisher)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game.Publisher)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Game.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Game.Price)
-        </dd>
-    </dl>
-</div>
+    <div>
+        <h4>Game</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Game.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Game.Name)
+            </dd>
+            <dt class="col-sm-2">
+            </dt>
+            <dd class="col-sm-10">
+                <img src="~/uploads/@Model.Game.MediaName" />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Game.ReleaseDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Game.ReleaseDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Game.Genre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Game.Genre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Game.FileType)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Game.FileType)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Game.Device)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Game.Device)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Game.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Game.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Game.Developer)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Game.Developer)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Game.Publisher)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Game.Publisher)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Game.Price)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Game.Price)
+            </dd>
+        </dl>
+    </div>
 
-<div>
-    <form method="POST">
-        <button value="Add to Cart">Add to Cart</button>
-    </form>
-</div>
-
-<div>
-    @if (User.IsInRole("Admin") || User.IsInRole("Staff"))
+    @if (User.IsInRole("User"))
     {
-        <a asp-page="./Edit" asp-route-id="@Model.Game.ID">Edit |</a>
+        <div>
+            <form method="POST">
+                <button value="Add to Cart">Add to Cart</button>
+            </form>
+        </div>
     }
-    <a asp-page="./Index">Back to List</a>
-</div>
-</body>
+        <div>
+            @if (User.IsInRole("Admin") || User.IsInRole("Staff"))
+            {
+                <a asp-page="./Edit" asp-route-id="@Model.Game.ID">Edit |</a>
+            }
+            <a asp-page="./Index">Back to List</a>
+        </div>
+    </body>
