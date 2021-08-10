@@ -91,7 +91,7 @@ namespace MIST.Models
                     {
                         Name = "The Manley Parable",
                         CoverImageName = "TheManleyParableCoverImage.jpg",
-                        MediaName = "TheManleyParableCoverMedia.png",
+                        MediaName = "TheManleyParableMediaImage.png",
                         ReleaseDate = DateTime.Parse("2013-10-17"),
                         Genre = "Indie",
                         FileType = "Soft Copy",
@@ -220,7 +220,7 @@ namespace MIST.Models
                     {
                         Name = "Run n Gun",
                         CoverImageName = "RunNGunCoverImage.jpg",
-                        MediaName = "RunNGunCoverImage.png",
+                        MediaName = "RunNGunMediaImage.png",
                         ReleaseDate = DateTime.Parse("2020-06-2"),
                         Genre = "FPS",
                         FileType = "Soft Copy",
@@ -252,7 +252,7 @@ namespace MIST.Models
                     {
                         Name = "FIFA 22",
                         CoverImageName = "FIFA22CoverImage.jpg",
-                        MediaName = "FIFA22CoverImage.jpg",
+                        MediaName = "FIFA22MediaImage.jpg",
                         ReleaseDate = DateTime.Parse("2021-7-17"),
                         Genre = "Football",
                         FileType = "Soft Copy",

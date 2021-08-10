@@ -19,9 +19,9 @@ namespace MIST.Models
         public ApplicationUser User { get; set; }
 
 
-        [RegularExpression(@"[a-zA-Z\s]*$",
+        [RegularExpression(@"^[A-Za-z0-9!.?]*[A-Za-z0-9!.?][A-Za-z0-9 !.?]*$",
         ErrorMessage = "Please enter a valid text")]
-        //[Required]
+        [Required]
         [StringLength(200)]
         [Display(Name = "Feedback")]
 
