@@ -11,7 +11,7 @@ using MIST.Models;
 
 namespace MIST.Pages.Audit
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
         private readonly MIST.Data.MISTDbContext _context;
