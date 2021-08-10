@@ -41,8 +41,13 @@
                 @Html.DisplayFor(modelItem => item.FeedbackText)
             </td>
             <td>
-                <a asp-page="./Details" asp-route-id="@item.FeedbackId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.FeedbackId">Delete</a>
+                <a asp-page="./Details" asp-route-id="@item.FeedbackId">Details</a>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <a asp-page="./Delete" asp-route-id="@item.FeedbackId">| Delete</a>
+                }
+                
             </td>
         </tr>
 }

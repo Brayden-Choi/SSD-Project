@@ -20,40 +20,40 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Games/Index">| Games |</a>
+                            <a class="nav-link" asp-area="" asp-page="/Games/Index">|&nbsp;&nbsp;&nbsp;&nbsp;Games&nbsp;&nbsp;&nbsp;&nbsp;|</a> 
                         </li>
                         <li class="nav-item">
                             @if (User.IsInRole("User"))
                             {
-                                <a class="nav-link" asp-area="" asp-page="/ShoppingCart/Index">Shopping Cart</a>
+                            <a class="nav-link" asp-area="" asp-page="/ShoppingCart/Index">Shopping Cart&nbsp;&nbsp;&nbsp;&nbsp;|</a>
                             }
                         </li>
                         <li class="nav-item">
                             @if (User.IsInRole("User"))
                             {
-                                <a class="nav-link" asp-area="" asp-page="/Feedbacks/Create">| Feedback |</a>
+                            <a class="nav-link" asp-area="" asp-page="/Feedbacks/Create">Feedback&nbsp;&nbsp;&nbsp;&nbsp;|</a>
                             }
                         </li>
                         <li class="nav-item">
                             @if (User.IsInRole("Admin") || User.IsInRole("Staff"))
                             {
-                                <a class="nav-link" asp-area="" asp-page="/Feedbacks/Index">Feedback</a>
+                            <a class="nav-link" asp-area="" asp-page="/Feedbacks/Index">Feedback&nbsp;&nbsp;&nbsp;&nbsp;|</a>
                             }
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Credits">Credits</a>
+                            <a class="nav-link" asp-area="" asp-page="/Credits">Credits&nbsp;&nbsp;&nbsp;&nbsp;|</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/References">| References |</a>
+                            <a class="nav-link" asp-area="" asp-page="/References">References&nbsp;&nbsp;&nbsp;&nbsp;|</a>
                         </li>
                         <li class="nav-item">
                             @if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-page="/Audit/Index">Audit Log</a>
+                                    <a class="nav-link" asp-area="" asp-page="/Audit/Index">Audit Log&nbsp;&nbsp;&nbsp;&nbsp;|</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-page="/Roles/Index">Roles</a>
+                                    <a class="nav-link" asp-area="" asp-page="/Roles/Index">Roles&nbsp;&nbsp;&nbsp;&nbsp;|</a>
                                 </li>
                         }
                             </li>

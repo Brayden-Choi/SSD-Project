@@ -71,6 +71,7 @@
                 }
 
                     <a asp-page="./Details" asp-route-id="@item.ID">Details</a>
+
                 @if (User.IsInRole("Admin") || User.IsInRole("Staff"))
                 {
                     <a asp-page="./Delete" asp-route-id="@item.ID">| Delete</a>
